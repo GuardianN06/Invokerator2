@@ -101,6 +101,12 @@ namespace Invokerator2
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
+            if (!isCmdModified)
+            {
+                ModifyCmd();
+                isCmdModified = true;
+            }
+
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             if (files.Length > 0)
             {
